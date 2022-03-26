@@ -286,8 +286,8 @@ export const baseStyles = css`
   }
 
   .navBarBrand img {
-    width: 120px;
-    margin-right: 6px;
+    width: 60px;
+    margin-right: 20px;
     display: inline-block;
   }
   .navBarUL li {
@@ -369,7 +369,6 @@ export const baseStyles = css`
   /* Header section ends here */
   .sidebarTitle {
     /* box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16); */
-    background-color: #f8f8f8;
     padding: 18px 16px;
     font-family: 'Poppins';
     font-size: 18px;
@@ -390,7 +389,7 @@ export const baseStyles = css`
   .greenCircle {
     width: 8px;
     height: 8px;
-    background-color: #1cd3c6;
+    background-color: #F05454;
     border-radius: 50%;
     margin: 0 12px;
   }
@@ -450,11 +449,10 @@ export const baseStyles = css`
   }
 
   .hideFrontLine .active > a {
-    background-color: #1ed3c6;
-    color: #fff !important;
+    color: #F05454 !important;
   }
   .firstLevel ul li .collapser svg path {
-    fill: #fff !important;
+    fill: #30475E !important;
   }
   .active .collapser > svg > path {
     fill: #001933 !important;
@@ -470,7 +468,7 @@ export const baseStyles = css`
   }
 
   .sideBarUL .item > a {
-    color: #1ED3C6;
+    color: #F05454;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -508,7 +506,7 @@ export const baseStyles = css`
     border-color: rgb(230, 236, 241) !important;
     border-style: solid none solid solid;
     border-width: 1px 0px 1px 1px;
-    background-color: #1ed3c6 !important;
+    background-color: #F05454 !important;
     color: #fff;
   }
 

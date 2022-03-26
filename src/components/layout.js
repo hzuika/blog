@@ -18,8 +18,7 @@ const Wrapper = styled('div')`
   }
 
   .sideBarUL .item > a:hover {
-    background-color: #1ed3c6;
-    color: #fff !important;
+    background-color: #E7E6E1;
 
     /* background: #F8F8F8 */
   }
@@ -55,6 +54,7 @@ const MaxWidth = styled('div')`
 `;
 
 const LeftSideBarWidth = styled('div')`
+  background-color: #F5F5F5;
   width: 298px;
 `;
 
