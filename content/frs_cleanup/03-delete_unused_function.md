@@ -32,7 +32,12 @@ cppcheck --enable=unusedFunction -q .\source\blender\freestyle\ 2> 出力ファ�
 [出力結果](https://gist.github.com/hzuika/48cbc266a1befddd33e90876bec44540)
 
 出力結果からunusedFunctionだけ抜粋します．また，接頭辞が`BPy_`と`FRS_`の関数はfreestyleディレクトリ以外で使用される可能性がある(外部公開関数)ため，除いています．
+(`test`接頭辞の関数も除いています．)
 また，結果から余分な改行を除き，昇順で並び替えました(VSCodeのソート)．
+
+### applicationディレクトリ内の未使用関数の削除
+[masterブランチとのdiff](https://gist.github.com/hzuika/0e5b3acdd48b3320cb41873571720f29)
+[直前の変更とのdiff](https://gist.github.com/hzuika/32eca4d9de32afa08e5bc20119413bac)
 
 ```txt
 source\blender\freestyle\intern\application\AppCanvas.cpp:164:0: style: The function 'RenderStroke' is never used. [unusedFunction]
@@ -52,18 +57,32 @@ source\blender\freestyle\intern\application\Controller.cpp:773:0: style: The fun
 source\blender\freestyle\intern\application\Controller.cpp:778:0: style: The function 'getModulesDir' is never used. [unusedFunction]
 source\blender\freestyle\intern\application\Controller.cpp:785:0: style: The function 'resetInterpreter' is never used. [unusedFunction]
 source\blender\freestyle\intern\application\Controller.cpp:792:0: style: The function 'displayDensityCurves' is never used. [unusedFunction]
+```
 
-source\blender\freestyle\intern\blender_interface\BlenderFileLoader.cpp:318:0: style: The function 'testDegenerateTriangle' is never used. [unusedFunction]
+### geometryディレクトリ内の未使用関数の削除
 
+* [masterブランチとのdiff](https://gist.github.com/hzuika/7e64207f60ced45c386b4452d524f442)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/7c53743e70a6f066d3b9d1a06e2139f8)
+
+```txt
 source\blender\freestyle\intern\geometry\GeomCleaner.cpp:124:0: style: The function 'SortAndCompressIndexedVertexArray' is never used. [unusedFunction]
 source\blender\freestyle\intern\geometry\GeomUtils.cpp:45:0: style: The function 'intersect2dSeg2dSeg' is never used. [unusedFunction]
 source\blender\freestyle\intern\geometry\GeomUtils.cpp:573:0: style: The function 'includePointTriangle' is never used. [unusedFunction]
 source\blender\freestyle\intern\geometry\GeomUtils.cpp:700:0: style: The function 'fromRetinaToCamera' is never used. [unusedFunction]
 source\blender\freestyle\intern\geometry\GeomUtils.cpp:714:0: style: The function 'fromCameraToWorld' is never used. [unusedFunction]
 source\blender\freestyle\intern\geometry\Grid.cpp:301:0: style: The function 'castRayToFindFirstIntersection' is never used. [unusedFunction]
+```
 
+### imageディレクトリ内の未使用関数の削除
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/c29bdcdcd7fc534e495ce5c9016d6f0b)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/c6331ad07826577301fb46f0d5d297e8)
+
+```txt
 source\blender\freestyle\intern\image\ImagePyramid.cpp:39:0: style: The function 'getLevel' is never used. [unusedFunction]
+```
 
+```txt
 source\blender\freestyle\intern\scene_graph\NodeCamera.cpp:43:0: style: The function 'setModelViewMatrix' is never used. [unusedFunction]
 source\blender\freestyle\intern\scene_graph\NodeGroup.cpp:92:0: style: The function 'RetrieveChildren' is never used. [unusedFunction]
 source\blender\freestyle\intern\scene_graph\NodeTransform.cpp:15:0: style: The function 'Translate' is never used. [unusedFunction]
@@ -71,9 +90,13 @@ source\blender\freestyle\intern\scene_graph\NodeTransform.cpp:22:0: style: The f
 source\blender\freestyle\intern\scene_graph\NodeTransform.cpp:72:0: style: The function 'Scale' is never used. [unusedFunction]
 source\blender\freestyle\intern\scene_graph\NodeTransform.cpp:81:0: style: The function 'MultiplyMatrix' is never used. [unusedFunction]
 source\blender\freestyle\intern\scene_graph\NodeTransform.cpp:87:0: style: The function 'setMatrix' is never used. [unusedFunction]
+```
 
+```txt
 source\blender\freestyle\intern\stroke\Canvas.cpp:162:0: style: The function 'PushBackStyleModule' is never used. [unusedFunction]
+```
 
+```txt
 source\blender\freestyle\intern\view_map\CulledOccluderSource.cpp:57:0: style: The function 'getOccluderProscenium' is never used. [unusedFunction]
 source\blender\freestyle\intern\view_map\Functions1D.cpp:220:0: style: The function 'getOccludersF1D' is never used. [unusedFunction]
 source\blender\freestyle\intern\view_map\Silhouette.cpp:206:0: style: The function 'viewedge_nature' is never used. [unusedFunction]
