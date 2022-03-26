@@ -13,7 +13,16 @@ cppcheck --enable=all -q .\source\blender\freestyle\ 2> ..\frs_check_20220327.tx
 
 [出力結果](https://gist.github.com/hzuika/b9f2f33b11eed6fcb289e02e5a764f9e)
 
-出力される結果は次の通りです．
+未使用の変数を処理しておきます．
+```txt
+source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:932:24: style: Unused variable: newVVertices [unusedVariable]
+source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:1588:16: style: Unused variable: occluders [unusedVariable]
+```
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/1aa08ca3306e03dd8ed6428fca65235b)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/5728871679f8e4c6a7df36ed5f711c09)
+
+その他の出力結果は次の通りです．
 
 ## Error
 
@@ -189,12 +198,6 @@ cppcheck --enable=all -q .\source\blender\freestyle\ 2> ..\frs_check_20220327.tx
 
 * unusedVariable (未使用の変数です)
     * style: Unused variable: 
-
-    こちらを適用していきます．
-    ```txt
-    source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:932:24: style: Unused variable: newVVertices [unusedVariable]
-    source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:1588:16: style: Unused variable: occluders [unusedVariable]
-    ```
 
 * variableScope (変数のスコープを狭めることができます．)
     * style: The scope of the variable can be reduced. 
