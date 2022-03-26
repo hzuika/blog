@@ -19,6 +19,12 @@ Freestyleのソースコードの中には大量の`#if 0`ディレクティブ�
 * [masterブランチとのdiff](https://gist.github.com/hzuika/2c7985c340470bc4928cd64c111fabac)
 * [直前の変更とのdiff](https://gist.github.com/hzuika/db512a67f4780d740730978990c91f92)
 
+## `#if SPHERICAL_GRID_LOGGING`ディレクティブの削除
+`BOX_GRID_LOGGING`と同様です．
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/494c9021a124a261d5b329983cddb74b)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/7415f15b9a4d6a4113175bcf15e3ffb1)
+
 ---
 
 ## 備考
