@@ -28,7 +28,7 @@ source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:1588:16: style: Unus
 
 * missingReturn (voidではない戻り値の関数に，return文がありません．)
     * error: Found a exit path from function with non-void return type that has missing return statement 
-    * `Py_RETURN_NONE;`を使用しているため，エラーが出ますが，これで正しいようです．
+    * `Py_RETURN_NONE;`を使用しているため，このエラーが出ています．
 
     例: source\blender\freestyle\intern\python\BPy_ContextFunctions.cpp:227
     ```cpp
@@ -42,7 +42,7 @@ source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:1588:16: style: Unus
     }
     ```
 
-* unknownMacro (知らないマクロがあります．(サブディテクトリ下でcppcheckを使用したためこのエラーが出る．)
+* unknownMacro (知らないマクロがあります．(サブディテクトリ下でcppcheckを使用したためこのエラーが出ます．)
     * error: There is an unknown macro here somewhere. Configuration is required. If Py_LOCAL_INLINE is a macro then please configure it. 
 
 ## Warning
@@ -110,8 +110,8 @@ source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:1588:16: style: Unus
 
 * nullPointerRedundantCheck (条件が冗長か，nullポインタのデリファレンスの可能性があります．)
     * warning: Either the condition '!ss' is redundant or there is possible null pointer dereference: ss. 
-    * `Py_RETURN_NONE`がやはり無視されているらしい．
-    * `__A`の`nullptr`チェックを`BLI_assert`で行っているが，cppcheckには引っかかっていない
+    * `Py_RETURN_NONE`がやはり無視されます．
+    * `__A`の`nullptr`チェックを`BLI_assert`で行っていますが，cppcheckには引っかかっていません
 
     例: source\blender\freestyle\intern\python\BPy_ViewShape.cpp:172
     ```cpp
@@ -148,7 +148,7 @@ source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:1588:16: style: Unus
     }
     ```
 
-* operatorEqVarError (代入演算子内でメンバ変数に値が割り当てられていない)
+* operatorEqVarError (代入演算子内でメンバ変数に値が割り当てられていません)
     * warning: Member variable 'Stroke::_textureStep' is not assigned a value in 'Stroke::operator='. 
 
 * uninitMemberVar (コンストラクタで初期化されないメンバ変数があります)
@@ -255,5 +255,5 @@ source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:1588:16: style: Unus
 
 ## その他
 
-* missingInclude (サブディレクトリであるため，出力される)
+* missingInclude (includeファイルが見つかりません．(サブディレクトリであるため出力されます．))
     * nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) 
