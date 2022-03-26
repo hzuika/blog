@@ -164,3 +164,19 @@ source\blender\freestyle\intern\winged_edge\Curvature.cpp:113:0: style: The func
 source\blender\freestyle\intern\winged_edge\Curvature.cpp:41:0: style: The function 'triangle_obtuse' is never used. [unusedFunction]
 source\blender\freestyle\intern\winged_edge\WEdge.cpp:381:0: style: The function 'getArea' is never used. [unusedFunction]
 ```
+
+## cppcheck(3回目)
+3回目です．
+
+```txt
+source\blender\freestyle\intern\geometry\GeomCleaner.cpp:22:0: style: The function 'SortIndexedVertexArray' is never used. [unusedFunction]
+source\blender\freestyle\intern\winged_edge\Curvature.cpp:58:0: style: The function 'angle_from_cotan' is never used. [unusedFunction]
+source\blender\freestyle\intern\winged_edge\Curvature.cpp:29:0: style: The function 'angle_obtuse' is never used. [unusedFunction]
+source\blender\freestyle\intern\winged_edge\Curvature.cpp:39:0: style: The function 'cotan' is never used. [unusedFunction]
+source\blender\freestyle\intern\winged_edge\Curvature.cpp:75:0: style: The function 'gts_vertex_principal_curvatures' is never used. [unusedFunction]
+```
+
+[出力結果](https://gist.github.com/hzuika/dfd8c6e40bf4670e21b3148d917ee27d)
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/5e4a756bb3e35424fc40c33e97fffc15)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/db8e240c6f40eadd0eb05a62c6cd7e4c)
