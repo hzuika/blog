@@ -9,6 +9,20 @@ const config = require('./config');
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  const { createRedirect } = actions
+  createRedirect({
+    fromPath: `/`,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `/frs_cleanup`,
+  })
+  createRedirect({
+    fromPath: ``,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `/frs_cleanup`,
+  })
+
   return new Promise((resolve, reject) => {
     resolve(
       graphql(
