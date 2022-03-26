@@ -26,7 +26,7 @@ const config = {
       '/frs_cleanup', // add trailing slash if enabled above
     ],
     collapsedNav: [
-      '/frs_cleanup', // add trailing slash if enabled above
+      // '/frs_cleanup', // add trailing slash if enabled above
     ],
     links: [{ text: 'hzuika.com', link: 'https://hzuika.com' }],
     frontline: false,
