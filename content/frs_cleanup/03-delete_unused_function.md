@@ -32,14 +32,17 @@ cppcheck --enable=unusedFunction -q .\source\blender\freestyle\ 2> 出力ファ�
 
 [出力結果](https://gist.github.com/hzuika/48cbc266a1befddd33e90876bec44540)
 
-出力結果からunusedFunctionだけ抜粋します．また，接頭辞が`BPy_`と`FRS_`の関数はfreestyleディレクトリ以外で使用される可能性がある(外部公開関数)ため，除いています．
-`test`接頭辞の関数も除いています．
-`iterator`系もreleaseディレクトリで使われる場合があるみたいなので除いています．
+出力結果からunusedFunctionだけ抜粋します．尚，
+* 接頭辞が`BPy_`と`FRS_`の関数はfreestyleディレクトリ以外で使用される可能性がある(外部公開関数)ため，除いています．
+* `test`接頭辞の関数も除いています．
+* `iterator`系もreleaseディレクトリで使われる場合があるみたいなので除いています．
+
 また，結果から余分な改行を除き，昇順で並び替えました(VSCodeのソート)．
 
 ### applicationディレクトリ内の未使用関数の削除
-[masterブランチとのdiff](https://gist.github.com/hzuika/0e5b3acdd48b3320cb41873571720f29)
-[直前の変更とのdiff](https://gist.github.com/hzuika/32eca4d9de32afa08e5bc20119413bac)
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/0e5b3acdd48b3320cb41873571720f29)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/32eca4d9de32afa08e5bc20119413bac)
 
 ```txt
 source\blender\freestyle\intern\application\AppCanvas.cpp:164:0: style: The function 'RenderStroke' is never used. [unusedFunction]
