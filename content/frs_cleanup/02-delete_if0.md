@@ -10,7 +10,14 @@ Freestyleのソースコードの中には大量の`#if 0`ディレクティブ�
 そのため，これらを削除してみました．
 
 * [masterブランチとのdiff](https://gist.github.com/hzuika/53cce295f6aca8da63ba909e7bf6c8cc)
-* [path削除からのdiff](https://gist.github.com/hzuika/649f12f9a20b4168ff73e27a99c1ae14)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/649f12f9a20b4168ff73e27a99c1ae14)
+
+## `#if BOX_GRID_LOGGING`ディレクティブの削除
+`#define BOX_GRID_LOGGING 0`であるため，これも`#if 0`となります．
+これはデバッグ出力用のコードのようです．
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/2c7985c340470bc4928cd64c111fabac)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/db512a67f4780d740730978990c91f92)
 
 ---
 
