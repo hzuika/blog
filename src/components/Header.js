@@ -76,7 +76,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
       }
     `}
     render={(data) => {
-      const logoImg = require('./images/logo.svg');
+      const logoImg = require('./images/logo.svg').default;
 
       const twitter = require('./images/twitter.svg');
 
@@ -90,7 +90,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
         },
       } = data;
 
-      const finalLogoLink = logo.link !== '' ? logo.link : 'https://hasura.io/';
+      const finalLogoLink = logo.link !== '' ? logo.link : 'https://hzuika.com';
 
       return (
         <div className={'navBarWrapper'}>
@@ -181,12 +181,12 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                     </GitHubButton>
                   </li>
                 ) : null}
-                <li>
+                {/* <li>
                   <DarkModeSwitch
                     isDarkThemeActive={isDarkThemeActive}
                     toggleActiveTheme={toggleActiveTheme}
                   />
-                </li>
+                </li> */}
               </ul>
             </div>
           </nav>
