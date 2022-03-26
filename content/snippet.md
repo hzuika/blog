@@ -38,3 +38,26 @@ gastbyブログをビルドするときのコマンド．
 ```ps1
 rmdir docs; npm run build; mv public docs
 ```
+
+最後のコマンドをコピーする．
+```ps1
+(Get-History | Select-Object -Last 1).CommandLine | clip
+```
+
+関数として$PROFILEに定義しておくとCopyLastCommandで呼び出せる．
+```ps1
+function CopyLastCommand {(Get-History | Select-Object -Last 1).CommandLine | clip}
+```
+
+コマンド履歴をコピーする．
+こちらのほうが使いやすいかもしれない．
+```ps1
+Get-History | clip
+```
+
+## cppcheck
+ディレクトリ下のソースコード内の未使用関数を検出する．
+他にもError等も出力されます(これの消し方はまだわかりません)．
+```txt
+cppcheck --enable=unusedFunction -q ディレクトリ 2> 出力ファイルパス
+```
