@@ -1,7 +1,7 @@
 const config = {
   gatsby: {
     pathPrefix: '/blog/',
-    siteUrl: 'https://hzuika.com',
+    siteUrl: 'https://hzuika.com/blog',
     gaTrackingId: null,
     trailingSlash: false,
   },
@@ -28,7 +28,7 @@ const config = {
     collapsedNav: [
       '/frs_cleanup', // add trailing slash if enabled above
     ],
-    links: [{ text: 'hzuika', link: 'https://hzuika.com' }],
+    links: [{ text: 'hzuika.com', link: 'https://hzuika.com' }],
     frontline: false,
     ignoreIndex: true,
     title:
