@@ -180,3 +180,7 @@ source\blender\freestyle\intern\winged_edge\Curvature.cpp:75:0: style: The funct
 
 * [masterブランチとのdiff](https://gist.github.com/hzuika/5e4a756bb3e35424fc40c33e97fffc15)
 * [直前の変更とのdiff](https://gist.github.com/hzuika/db8e240c6f40eadd0eb05a62c6cd7e4c)
+
+---
+
+次は cppcheck で全オプションを有効にします．
