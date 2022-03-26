@@ -21,6 +21,7 @@ Cppcheck 2.7
 
 ## cppcheckで未使用関数を調べる．
 unusedFunctionはディレクトリ下で使われていない関数を出力するため，サブディレクトリ下では注意が必要です．
+(他のディレクトリで使われるかもしれません．)
 -q で進行状況を無視します．
 他にもError等も出力されます(これの消し方はまだわかりません)．
 unusedFunctionは最後にまとめて出力されます．
@@ -32,7 +33,8 @@ cppcheck --enable=unusedFunction -q .\source\blender\freestyle\ 2> 出力ファ�
 [出力結果](https://gist.github.com/hzuika/48cbc266a1befddd33e90876bec44540)
 
 出力結果からunusedFunctionだけ抜粋します．また，接頭辞が`BPy_`と`FRS_`の関数はfreestyleディレクトリ以外で使用される可能性がある(外部公開関数)ため，除いています．
-(`test`接頭辞の関数も除いています．)
+`test`接頭辞の関数も除いています．
+`iterator`系もreleaseディレクトリで使われる場合があるみたいなので除いています．
 また，結果から余分な改行を除き，昇順で並び替えました(VSCodeのソート)．
 
 ### applicationディレクトリ内の未使用関数の削除
@@ -82,6 +84,11 @@ source\blender\freestyle\intern\geometry\Grid.cpp:301:0: style: The function 'ca
 source\blender\freestyle\intern\image\ImagePyramid.cpp:39:0: style: The function 'getLevel' is never used. [unusedFunction]
 ```
 
+### scene_graphディレクトリ内の未使用関数の削除
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/46ac2f077b91b865d056f763d91cb430)
+* [直前の変更とのdiff]()
+
 ```txt
 source\blender\freestyle\intern\scene_graph\NodeCamera.cpp:43:0: style: The function 'setModelViewMatrix' is never used. [unusedFunction]
 source\blender\freestyle\intern\scene_graph\NodeGroup.cpp:92:0: style: The function 'RetrieveChildren' is never used. [unusedFunction]
@@ -92,9 +99,19 @@ source\blender\freestyle\intern\scene_graph\NodeTransform.cpp:81:0: style: The f
 source\blender\freestyle\intern\scene_graph\NodeTransform.cpp:87:0: style: The function 'setMatrix' is never used. [unusedFunction]
 ```
 
+### strokeディレクトリ内の未使用関数の削除
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/60a2ed29a31674f24833cd9c3a21ab71)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/d2c954ed205441e64a30fa00573816ab)
+
 ```txt
 source\blender\freestyle\intern\stroke\Canvas.cpp:162:0: style: The function 'PushBackStyleModule' is never used. [unusedFunction]
 ```
+
+### view_mapディレクトリ内の未使用関数の削除
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/1a2aa84809e96e54070d1a7b3b6683e2)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/a0bf2a2c2a42869ba6f477906c601c94)
 
 ```txt
 source\blender\freestyle\intern\view_map\CulledOccluderSource.cpp:57:0: style: The function 'getOccluderProscenium' is never used. [unusedFunction]
@@ -107,13 +124,15 @@ source\blender\freestyle\intern\view_map\SilhouetteGeomEngine.cpp:267:0: style: 
 source\blender\freestyle\intern\view_map\SteerableViewMap.cpp:174:0: style: The function 'buildImagesPyramids' is never used. [unusedFunction]
 source\blender\freestyle\intern\view_map\ViewEdgeXBuilder.cpp:555:0: style: The function 'FindNextWEdge' is never used. [unusedFunction]
 source\blender\freestyle\intern\view_map\ViewEdgeXBuilder.cpp:604:0: style: The function 'FindPreviousWEdge' is never used. [unusedFunction]
-source\blender\freestyle\intern\view_map\ViewMap.cpp:411:0: style: The function 'edges_begin' is never used. [unusedFunction]
-source\blender\freestyle\intern\view_map\ViewMap.cpp:423:0: style: The function 'edges_end' is never used. [unusedFunction]
-source\blender\freestyle\intern\view_map\ViewMap.cpp:437:0: style: The function 'edges_iterator' is never used. [unusedFunction]
-source\blender\freestyle\intern\view_map\ViewMap.cpp:468:0: style: The function 'edgesEnd' is never used. [unusedFunction]
-source\blender\freestyle\intern\view_map\ViewMap.cpp:620:0: style: The function 'ViewEdge_iterator' is never used. [unusedFunction]
 source\blender\freestyle\intern\view_map\ViewMapBuilder.cpp:887:0: style: The function 'CullViewEdges' is never used. [unusedFunction]
+```
 
+### winged_edgeディレクトリ内の未使用関数の削除
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/1c69e4e4b494ced090bd46ffdc8f9fe4)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/122f8e4b411e60e728e8dc0348dc8df1)
+
+```txt
 source\blender\freestyle\intern\winged_edge\Curvature.cpp:132:0: style: The function 'gts_vertex_gaussian_curvature' is never used. [unusedFunction]
 source\blender\freestyle\intern\winged_edge\Curvature.cpp:206:0: style: The function 'gts_vertex_principal_directions' is never used. [unusedFunction]
 source\blender\freestyle\intern\winged_edge\Curvature.cpp:86:0: style: The function 'gts_vertex_mean_curvature_normal' is never used. [unusedFunction]
