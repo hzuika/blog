@@ -141,3 +141,26 @@ source\blender\freestyle\intern\winged_edge\Curvature.cpp:206:0: style: The func
 source\blender\freestyle\intern\winged_edge\Curvature.cpp:86:0: style: The function 'gts_vertex_mean_curvature_normal' is never used. [unusedFunction]
 source\blender\freestyle\intern\winged_edge\WXEdge.cpp:175:0: style: The function 'ComputeCenter' is never used. [unusedFunction]
 ```
+
+## cppcheckで未使用関数を調べる(2回目)．
+
+cppcheckで未使用関数を削除すると，その関数の中で使われていた関数が未使用になることがあります．
+そこでもう一度cppcheckを実行します．
+
+[出力結果](https://gist.github.com/hzuika/a62eec641aafd34186918b430d1e0e71)
+
+* [masterブランチとのdiff](https://gist.github.com/hzuika/3421de11fdef73d17ffc6697f7b0ac53)
+* [直前の変更とのdiff](https://gist.github.com/hzuika/b830b9430644554a68ad04b75d1ccca4)
+
+```txt
+source\blender\freestyle\intern\geometry\GeomCleaner.cpp:65:0: style: The function 'CompressIndexedVertexArray' is never used. [unusedFunction]
+source\blender\freestyle\intern\scene_graph\NodeTransform.cpp:68:0: style: The function 'isScaled' is never used. [unusedFunction]
+source\blender\freestyle\intern\stroke\Canvas.cpp:222:0: style: The function 'ReplaceStyleModule' is never used. [unusedFunction]
+source\blender\freestyle\intern\view_map\SteerableViewMap.cpp:200:0: style: The function 'getNumberOfPyramidLevels' is never used. [unusedFunction]
+source\blender\freestyle\intern\view_map\SteerableViewMap.cpp:208:0: style: The function 'saveSteerableViewMap' is never used. [unusedFunction]
+source\blender\freestyle\intern\view_map\ViewEdgeXBuilder.cpp:541:0: style: The function 'retrieveFaceMarks' is never used. [unusedFunction]
+source\blender\freestyle\intern\winged_edge\Curvature.cpp:103:0: style: The function 'linsolve' is never used. [unusedFunction]
+source\blender\freestyle\intern\winged_edge\Curvature.cpp:113:0: style: The function 'eigenvector' is never used. [unusedFunction]
+source\blender\freestyle\intern\winged_edge\Curvature.cpp:41:0: style: The function 'triangle_obtuse' is never used. [unusedFunction]
+source\blender\freestyle\intern\winged_edge\WEdge.cpp:381:0: style: The function 'getArea' is never used. [unusedFunction]
+```
