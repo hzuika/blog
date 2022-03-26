@@ -16,7 +16,7 @@ Freestyleのソースコードの中には大量の`#if 0`ディレクティブ�
 
 ## 備考
 
-現在のVSCode だと`#if 0`ディレクティブのcppファイルの色が変わらなかったため，VSCode Insidersを使用しました．
+現在のVSCode だとcppファイルの`#if 0`ディレクティブの色が変わらなかったため，VSCode Insidersを使用しました．
 
 ```txt
 code --version
@@ -26,8 +26,8 @@ x64
 ```
 
 ```txt
-code --version
-1.65.2
-c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1
+code-insiders --version
+1.66.0-insider
+c63ed49b4b164210301f4f8a09079aa4de53b870
 x64
 ```
