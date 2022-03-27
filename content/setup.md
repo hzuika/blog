@@ -17,17 +17,15 @@ publicフォルダが残ったままだとビルドに失敗します．
 
 # 色
 
-ベースカラー
-```txt
-#30475E
-rgb(48, 71, 94)
-```
+<div style="background-color:#30475E; color:white">ベースカラー</div>
+<div style="background-color:#30475E; color:white">#30475E</div>
+<div style="background-color:#30475E; color:white">rgb(48, 71, 94)</div>
 
-アクセントカラー 
-```txt
-#F05454
-rgb(240, 84, 84)
-```
+<br/>
+
+<div style="background-color:#F05454; color:white">アクセントカラー</div>
+<div style="background-color:#F05454; color:white">#F05454</div>
+<div style="background-color:#F05454; color:white">rgb(240, 84, 84)</div>
 
 # ロゴ
 
