@@ -23,6 +23,7 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
+      '/introduction',
       '/frs_cleanup', // add trailing slash if enabled above
     ],
     collapsedNav: [
