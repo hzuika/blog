@@ -66,3 +66,20 @@ Get-History | clip
 ```txt
 cppcheck --enable=unusedFunction -q ディレクトリ 2> 出力ファイルパス
 ```
+
+## make
+
+Widnowsでblenderをビルドするときは， make コマンドではなく， make.bat のバッチファイルを実行します．
+Powershellで実行する場合は， .\make.bat のようにカレントディレクトリから書く必要があります(tabで補完できます)．
+
+実行ファイルの出力ディレクトリを手動で設定します．
+これで，bulid_msbuild_debug フォルダにVisual Studio のソリューションファイルが作成されます．
+```txt
+.\makebat debug builddir bulid_msbuild_debug
+```
+
+いつもは ninja ビルドシステムとsccacheオプションを有効にしてblenderをビルドしています．
+ビルド時間は計測したことはありませんが，ninjaのほうが早く感じます．
+```txt
+.\make.bat debug ninja sccache
+```
