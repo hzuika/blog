@@ -13,6 +13,9 @@ metaDescription: "delete unused function in ViewMapBulder.cpp/h"
     * `setProgressBar`
     * `FindOccludee`
     * `BuildGrid`
+    * `distance2D`
+    * `crossesProscenium`
+    * `insideProscenium`
 
 # diff
 * [masterブランチとのdiff](https://gist.github.com/hzuika/d70ec61c6731d2dfd6c627e52e65c281)
