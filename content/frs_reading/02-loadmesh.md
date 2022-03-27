@@ -86,10 +86,10 @@ void NodeGroup::accept(SceneVisitor &v)
 ```py
 import bpy
 
-vertices = bpy.data.objects['Cube'].data.vertices
+mvert = bpy.data.objects['Cube'].data.vertices
 obmat = bpy.data.objects['Camera'].matrix_world.inverted()
 
-for v in vertices:
+for v in mvert:
     print(obmat @ v.co)
 
 '''
@@ -158,3 +158,5 @@ source/blender/makesdna/DNA_freestyle_types.h の次の変更によって，
 
 `FREESTYLE_ALGO_CULLED_ADAPTIVE_TRADITIONAL` が使用されているソースコード(source\blender\blenloader\intern\versioning_260.c)でエラーが出てビルドできませんでした．
 ちなみに ninja ビルドシステムでビルドしているときはなぜかエラーになりませんでした．
+
+[過去のコミットを編集した](/frs_cleanup/01-delete_path)ときのようにするのも面倒だったので，とりあえずそのままコミットしました．
