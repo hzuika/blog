@@ -21,6 +21,11 @@ diffファイルの作成コマンド．変更箇所と周辺100行まで記載�
 git diff -U100 master > ../diffファイルパス
 ```
 
+直前のコミットとのdiffを作成する．
+```txt
+git diff -U100 HEAD^ > ../diffファイルパス
+```
+
 ## gist
 
 新規gistを作るときのurl．
