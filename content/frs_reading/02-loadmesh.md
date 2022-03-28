@@ -15,7 +15,7 @@ metaDescription: "Reading LoadMesh function"
 
 メッシュの読み込み機能が気になるので，読んでいきます．
 
-メッシュの読み込みは `FRS_do_stroke_rendering` > `prepare` 関数内で呼び出される, `Controller` クラスの `LoadMesh` メソッドで行われます．
+メッシュの読み込みは `FRS_do_stroke_rendering` > `prepare` 関数内で呼び出される, `Controller::LoadMesh` メソッドで行われます．
 
 このメソッド内の `WXEdgeBuilder` クラスがBlenderのメッシュの幾何情報を  Winged Edge と呼ばれるデータ構造に変換します．
 
@@ -64,8 +64,8 @@ void NodeGroup::accept(SceneVisitor &v)
 * `void WXEdgeBuilder::visitIndexedFaceSet(IndexedFaceSet &ifs)`
 
 # visitIndexedFaceSet
-`visitIndexedFaceSet` の `buildWShape` で Winged Edge が構築されているみたいです．
-さらに `buildWShape` の `buildWVertices` を見ていきます．
+`WingedEdgeBuilder::buildWShape` により `visitIndexedFaceSet` から Winged Edge が構築されているみたいです．
+さらに `buildWShape` の `WXEdgeBuilder::buildWVertices` を見ていきます．
 関数内部の `vsize` は `24` で，これを3個ずつループして `WXVertex` を作成していました．
 頂点の数は8個です(立方体の頂点数)．
 各頂点の座標は次の通りです．
@@ -104,7 +104,7 @@ for v in mvert:
 '''
 ```
 
-`buildWShape` では `IndexedFaceSet` から幾何情報を取得して `buildTriangles` が呼ばれます．
+`buildWShape` では `IndexedFaceSet` から幾何情報を取得して `WingedEdgeBuilder::buildTriangles` が呼ばれます．
 
 ```cpp
       case IndexedFaceSet::TRIANGLES:
