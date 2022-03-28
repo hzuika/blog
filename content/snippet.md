@@ -60,6 +60,11 @@ function CopyLastCommand {(Get-History | Select-Object -Last 1).CommandLine | cl
 Get-History | clip
 ```
 
+ファイルサイズでソートして，サイズとファイル名を出力する (サブフォルダも対象)．
+```ps1
+Get-ChildItem .\source\blender\freestyle\ -Recurse -File| Sort-Object -Property Length | ForEach-Object {Write-Host $_.Length $_.Fullname}
+```
+
 ## cppcheck
 ディレクトリ下のソースコード内の未使用関数を検出する．
 他にもError等も出力されます(これの消し方はまだわかりません)．
