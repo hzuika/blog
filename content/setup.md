@@ -13,6 +13,11 @@ metaDescription: ""
 1. `npm run build`
 1. `mv public docs`
 
+ワンライナー
+```txt
+rmdir docs; npm run build; mv public docs
+```
+
 publicフォルダが残ったままだとビルドに失敗します．
 
 # 色
@@ -31,3 +36,11 @@ publicフォルダが残ったままだとビルドに失敗します．
 
 ロゴはInkscapeでテキストを組み合わせて作成しました．
 テキストのままだと，フォントが置き換わるため，パスに変換して出力しました．
+
+# TODO
+
+* [ ] 相対リンクを修正する
+    * pathPrefixが二重になる．(/blog/blog/)
+    * localhostでは正常
+* [ ] 右側のサイドバーを表示させる．
+    * localhostでは正常．
