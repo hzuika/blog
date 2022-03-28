@@ -143,8 +143,9 @@ for v in mvert:
 
 Visual Studio Codeでデバッグしようとして，ブレークポイントからステップオーバーが変なところに移動するので，Visual Studioでデバッグしました．
 
-
 ## Visual Studio でビルドするとエラー
+[ここ](/frs_cleanup/11-restore_visibility_alog_in_dna)で修正しました．
+
 Visual Studioでビルドすると，エラーが出ました．
 
 source/blender/makesdna/DNA_freestyle_types.h の次の変更によって，
@@ -158,5 +159,3 @@ source/blender/makesdna/DNA_freestyle_types.h の次の変更によって，
 
 `FREESTYLE_ALGO_CULLED_ADAPTIVE_TRADITIONAL` が使用されているソースコード(source\blender\blenloader\intern\versioning_260.c)でエラーが出てビルドできませんでした．
 ちなみに ninja ビルドシステムでビルドしているときはなぜかエラーになりませんでした．
-
-[過去のコミットを編集した](/frs_cleanup/01-delete_path)ときのようにするのも面倒だったので，とりあえずそのままコミットしました．
