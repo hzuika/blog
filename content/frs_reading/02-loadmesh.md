@@ -7,7 +7,7 @@ metaDescription: "Reading LoadMesh function"
 
 # まとめ
 
-メッシュの読み込みは次のような流れになっていました．
+メッシュの読み込み(`Controller::LoadMesh`)は次のような流れになっていました．
 * `BlenderFileLoader::Load` が Blenderのメッシュ幾何情報 → `IndexedFaceSet` と呼ばれるMV行列乗算後の幾何情報(カメラから見た頂点位置)
 * `WingedEdgeBuilder::buildWShape` が `IndexedFaceSet` → Winged Edge データ構造
 
