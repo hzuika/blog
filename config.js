@@ -24,10 +24,15 @@ const config = {
   sidebar: {
     forcedNavOrder: [
       '/introduction',
-      '/frs_cleanup', // add trailing slash if enabled above
+      '/frs_reading',
+      '/frs_cleanup',
+      '/blender_ime',
+      '/snippet',
+      '/misc',
+      '/setup',
     ],
     collapsedNav: [
-      // '/frs_cleanup', // add trailing slash if enabled above
+      '/frs_cleanup', // add trailing slash if enabled above
     ],
     links: [{ text: 'hzuika.com', link: 'https://hzuika.com' }],
     frontline: false,
