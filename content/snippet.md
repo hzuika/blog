@@ -26,6 +26,14 @@ git diff -U100 master > ../diffファイルパス
 git diff -U100 HEAD^ > ../diffファイルパス
 ```
 
+自分のコミットしたコードの行数を数える．
+```sh
+# macOS
+git log --numstat --pretty="%H" --author='Yuki Hashimoto' --since=2021-07-01 --no-merges | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("%d (+%d, -%d)\n", plus+minus, plus, minus)}'
+```
+blenderのリポジトリで実行すると， 2022/03/29時点で， 535 (+460, -75) だった．
+
+
 ## gist
 
 新規gistを作るときのurl．
