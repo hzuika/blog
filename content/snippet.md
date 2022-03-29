@@ -88,3 +88,22 @@ Powershellで実行する場合は， .\make.bat のようにカレントディ�
 ```txt
 .\make.bat debug ninja sccache
 ```
+
+# Network
+
+IP アドレスを調べる．
+```sh
+# macOS
+ifconfig
+# Windows
+ipconfig
+```
+
+同一LAN内の接続機器のIPアドレスとMACアドレスを調べる．
+```sh
+arc -a
+```
+
+MACアドレス(OrganizationalUniqueIdentifier （OUI）)から，製造元を調べるサイト．
+
+[https://www.wireshark.org/tools/oui-lookup.html](https://www.wireshark.org/tools/oui-lookup.html)
