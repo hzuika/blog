@@ -105,5 +105,6 @@ arc -a
 ```
 
 MACアドレス(OrganizationalUniqueIdentifier （OUI）)から，製造元を調べるサイト．
+(参考: https://www.pcwdld.com/find-device-or-ip-address-using-mac-address)
 
 [https://www.wireshark.org/tools/oui-lookup.html](https://www.wireshark.org/tools/oui-lookup.html)
