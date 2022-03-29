@@ -27,6 +27,7 @@ git diff -U100 HEAD^ > ../diffファイルパス
 ```
 
 自分のコミットしたコードの行数を数える．
+(参考: https://qiita.com/Night___/items/359ff81f358968567a45)
 ```sh
 # macOS
 git log --numstat --pretty="%H" --author='Yuki Hashimoto' --since=2021-07-01 --no-merges | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("%d (+%d, -%d)\n", plus+minus, plus, minus)}'
