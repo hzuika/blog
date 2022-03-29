@@ -98,7 +98,7 @@ Powershellで実行する場合は， .\make.bat のようにカレントディ�
 .\make.bat debug ninja sccache
 ```
 
-# Network
+## Network
 
 IP アドレスを調べる．
 ```sh
@@ -117,3 +117,13 @@ MACアドレス(OrganizationalUniqueIdentifier （OUI）)から，製造元を�
 (参考: https://www.pcwdld.com/find-device-or-ip-address-using-mac-address)
 
 [https://www.wireshark.org/tools/oui-lookup.html](https://www.wireshark.org/tools/oui-lookup.html)
+
+## GitHub
+
+Advanced Search．
+* リポジトリを指定 `repo:`
+* ファイルパスを指定 `path:`
+例：blender/blender リポジトリの /source フォルダ内で ghost という単語を検索する．
+```txt
+ghost path:/source  repo:blender/blender
+```
