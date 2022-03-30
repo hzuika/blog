@@ -57,7 +57,7 @@
   "main": "n/a",
   "scripts": {
     "start": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
     "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
