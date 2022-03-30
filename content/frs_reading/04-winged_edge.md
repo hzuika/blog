@@ -64,3 +64,11 @@ class WShape {
   vector<WFace *> _FaceList;
 }
 ```
+
+# WingedEdge
+```cpp
+class WingedEdge {
+ private:
+  vector<WShape *> _wshapes;
+};
+```
