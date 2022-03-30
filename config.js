@@ -1,7 +1,7 @@
 const config = {
   gatsby: {
-    pathPrefix: '/blog/',
-    siteUrl: 'https://hzuika.com/blog',
+    pathPrefix: '',
+    siteUrl: 'https://blog.hzuika.com',
     gaTrackingId: null,
     trailingSlash: false,
   },
