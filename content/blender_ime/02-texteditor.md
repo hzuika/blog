@@ -15,7 +15,7 @@ metaDescription: ""
 英語入力の場合は， `text_insert_invoke` で `wmEvent` から文字を受け取り， `wmOperator.ptr` に格納して， `text_insert_exec` で取り出して，挿入処理を行っています．
 IMEの場合も， `text_insert_invoke` で `wmOperator.ptr` に入れてみました．
 
-[WIP: IME result string in text editor. · hzuika/blender@c9e7fed](https://github.com/hzuika/blender/commit/c9e7fed03bbee63a3957f2b1fa54650e21b90ead)
+[WIP: IME result string in text editor. · hzuika/blender@28010c4](https://github.com/hzuika/blender/commit/28010c40951e93b041ac09dc7af26db3ae717da1)
 
 入力中に `BLI_assert` が出ました．
 `UNDO` 系の処理に不具合が発生したようです．
