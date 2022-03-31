@@ -4,3 +4,4 @@ metaTitle: "IME suport in Text object"
 metaDescription: ""
 ---
 
+> 今後追加予定
