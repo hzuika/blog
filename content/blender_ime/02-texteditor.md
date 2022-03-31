@@ -22,3 +22,5 @@ IMEの場合も， `text_insert_invoke` で `wmOperator.ptr` に入れてみま�
 ```txt
 BLI_assert failed: C:\blender-git\blender\source\blender\blenkernel\intern\undo_system.c:448, BKE_undosys_step_push_init_with_type(), at 'ustack->step_init == ((void *)0)'
 ```
+
+おそらく `ED_text_undo_push_init` (source\blender\editors\space_text\text_undo.c)で呼び出されたようです．
