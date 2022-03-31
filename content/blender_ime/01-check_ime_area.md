@@ -142,12 +142,85 @@ static void view3d_main_region_cursor(wmWindow *win, ScrArea *area, ARegion *reg
 }
 ```
 
+# ~~UIのテキストボタンで編集中かどうか調べる．~~
+テキストボタン編集中は次が `false` になるため，チェックする必要がない．
+```cpp
+      if ((action & WM_HANDLER_BREAK) == 0) {
+        // ここでテキストボタンの編集に関係なくエリアのチェックができる．
+      }
+```
+
+---
+
+失敗記録: `ARegion*` から `uiBut*` を求める関数 `ui_region_find_active_but` が interface_intern.h 内で定義されているため，window manager 内で使用できない．
+```cpp
+// source\blender\windowmanager\intern\wm_event_system.c
+          ARegion *check_region = region_event_inside(C, event->xy);
+          uiBut *but = ui_region_find_active_but(region);
+          if (but != NULL) {
+            if (but->active && but->active == BUTTON_STATE_HIGHLIGHT) {
+              if (but->type) {
+                switch (but->type) {
+                  case UI_BTYPE_TEXT:
+                  case UI_BTYPE_SEARCH_MENU:
+                  printf("IME Enabled area, %d\n", check_count++);
+                  break;
+                }
+              }
+            }
+          }
+```
+
+---
+
+ボタンの種類
+* テキストボタン: UI_BTYPE_TEXT
+* 検索メニュー: UI_BTYPE_SEARCH_MENU
+
+```cpp
+// source\blender\editors\interface\interface_handlers.c
+static int ui_do_button(bContext *C, uiBlock *block, uiBut *but, const wmEvent *event)
+{
+  switch (but->type) {
+    case UI_BTYPE_TEXT:
+    case UI_BTYPE_SEARCH_MENU:
+      if ((but->type == UI_BTYPE_SEARCH_MENU) && (but->flag & UI_BUT_VALUE_CLEAR)) {
+        retval = ui_do_but_SEARCH_UNLINK(C, block, but, data, event);
+        if (retval & WM_UI_HANDLER_BREAK) {
+          break;
+        }
+      }
+      retval = ui_do_but_TEX(C, block, but, data, event);
+      break;
+  }
+}
+
+static int ui_handle_button_event(bContext *C, const wmEvent *event, uiBut *but)
+{
+  uiHandleButtonData *data = but->active;
+  if (data->state == BUTTON_STATE_HIGHLIGHT) {
+    retval = ui_do_button(C, block, but, event);
+  }
+}
+
+static int ui_region_handler(bContext *C, const wmEvent *event, void *UNUSED(userdata))
+{
+  ARegion *region = CTX_wm_region(C);
+  uiBut *but = ui_region_find_active_but(region);
+  if (retval == WM_UI_HANDLER_CONTINUE) {
+    if (but) {
+      retval = ui_handle_button_event(C, event, but);
+    }
+  }
+}
+```
+
 # エリアごとにIMEを有効/無効にする
 エリアをチェックしてIMEを有効にしたり無効にしたりします．
 ただし，IME有効/無効にする関数 `wm_window_IME_begin` / `wm_window_IME_end` は今後修正する必要があります．
 (特に，`ime_data` を持っていなくてもとりあえず無効にできる必要があります．)
 
-[IME: Enable/Disable IME by area. · hzuika/blender@05ebf2a](https://github.com/hzuika/blender/commit/05ebf2a3438e57866dfc8b78d1c1013315dd105f)
+[IME: Enable/Disable IME by area. · hzuika/blender@908b08d](https://github.com/hzuika/blender/commit/908b08de35ad731b9bffdce6f90cd02e3fc5a5dc)
 
 ---
 
