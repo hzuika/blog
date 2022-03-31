@@ -142,7 +142,8 @@ static void view3d_main_region_cursor(wmWindow *win, ScrArea *area, ARegion *reg
 }
 ```
 
-# ~~UIのテキストボタンで編集中かどうか調べる．~~
+# UIのテキストボタンで編集中かどうか調べる．
+
 テキストボタン編集中は次が `false` になるため，チェックする必要がない．
 ```cpp
       if ((action & WM_HANDLER_BREAK) == 0) {
