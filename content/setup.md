@@ -18,8 +18,12 @@ metaDescription: ""
 rmdir docs; npm run build; mv public docs
 ```
 
-publicフォルダが残ったままだとビルドに失敗します．
+CNAMEのコピーを含めたコマンド
+```txt
+rmdir docs; npm run build; mv public docs; cp src/CNAME docs
+```
 
+publicフォルダが残ったままだとビルドに失敗します．
 # 色
 
 <div style="background-color:#30475E; color:white">ベースカラー</div>
@@ -46,3 +50,4 @@ publicフォルダが残ったままだとビルドに失敗します．
 * [X] ~~右側のサイドバーを表示させる．~~
     * localhostでは正常．
     * サブドメイン (blog.hzuika.com) に変更すると直った．
+* [ ] コードブロックにコピーボタンをつける．
