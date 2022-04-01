@@ -24,3 +24,7 @@ BLI_assert failed: C:\blender-git\blender\source\blender\blenkernel\intern\undo_
 ```
 
 おそらく `ED_text_undo_push_init` (source\blender\editors\space_text\text_undo.c)で呼び出されたようです．
+
+このエラーの原因は， `WM_IME_COMPOSITE_EVENT` 以外の場合に `OPERATOR_PATH_THROUGH` を返していなかったため，起こりました．
+このコミット([Fix: IME result string in text editor. · hzuika/blender@6e9cbc7](https://github.com/hzuika/blender/commit/6e9cbc7da91b61574fb35a0cf0d27eb54d2d0e70))で直りました．
+ただし，`text_insert_invoke` 関数内で入力確定のためのEnterキーを押すと， `text_line_break_exec` 関数が実行されて，余分な改行が入ってしまうため，新しく `text_insert_modal` 関数を作って，その中に処理を移す必要があると思いました．
