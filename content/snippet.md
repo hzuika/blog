@@ -53,6 +53,11 @@ gastbyブログをビルドするときのコマンド．
 rmdir docs; npm run build; mv public docs
 ```
 
+CNAMEのコピーを含めたコマンド．
+```txt
+rmdir docs; npm run build; mv public docs; cp src/CNAME docs
+```
+
 最後のコマンドをコピーする．
 ```ps1
 (Get-History | Select-Object -Last 1).CommandLine | clip
