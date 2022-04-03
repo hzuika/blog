@@ -73,5 +73,28 @@ mod tests {
         let _ = &a / &b;
     }
 }
+```
 
+# マクロ
+似た部分の記述をマクロにします．
+
+```rs
+macro_rules! vec_op_impl {
+    ($T:ty, $a:expr, $op:tt, $b:expr) => {
+        {
+            let mut _result = <$T>::default();
+            for i in 0..3 {
+                _result[i] = $a[i] $op $b[i];
+            }
+            _result
+        }
+    }
+}
+
+impl std::ops::Add for &Float3 {
+    type Output = Float3;
+    fn add(self, other: Self) -> Self::Output {
+        vec_op_impl!(Self::Output, self, +, other)
+    }
+}
 ```
