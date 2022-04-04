@@ -39,13 +39,32 @@ mod tests {
 # その他のコンストラクタ
 
 ```rs
-impl Float3 {
-    pub fn new_scalar(value: f32) -> Self {
-        let mut _result = Self::default();
-        for i in 0..3 {
-            _result[i] = value;
+macro_rules! new_scalar_internal {
+    ($T:ty, $val:expr) => {
+        {
+            let mut _result = <$T>::default();
+            for i in 0..3 {
+                _result[i] = $val as f32;
+            }
+            _result
         }
-        _result
+    };
+}
+impl Float3 {
+    pub fn new_scalar_u32(value: u32) -> Self {
+        new_scalar_internal!(Float3, value)
+    }
+
+    pub fn new_scalar_i32(value: i32) -> Self {
+        new_scalar_internal!(Float3, value)
+    }
+
+    pub fn new_scalar_f32(value: f32) -> Self {
+        new_scalar_internal!(Float3, value)
+    }
+
+    pub fn new_scalar_f64(value: f64) -> Self {
+        new_scalar_internal!(Float3, value)
     }
 }
 ```
