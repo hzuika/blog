@@ -35,3 +35,17 @@ mod tests {
     }
 }
 ```
+
+# その他のコンストラクタ
+
+```rs
+impl Float3 {
+    pub fn new_scalar(value: f32) -> Self {
+        let mut _result = Self::default();
+        for i in 0..3 {
+            _result[i] = value;
+        }
+        _result
+    }
+}
+```
