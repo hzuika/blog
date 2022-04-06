@@ -34,7 +34,7 @@ git log --numstat --pretty="%H" --author='Yuki Hashimoto' --since=2021-07-01 --n
 blenderのリポジトリで実行すると， 2022/03/29時点で， 535 (+460, -75) だった．
 
 ## 空のコミット
-
+参考: [Git 空コミットを行う - Qiita](https://qiita.com/miriwo/items/dbf82ca73723026d96f2)
 ```
 git commit --allow-empty -m "first commit"
 ```
