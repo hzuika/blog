@@ -39,6 +39,10 @@ blenderのリポジトリで実行すると， 2022/03/29時点で， 535 (+460,
 git commit --allow-empty -m "first commit"
 ```
 
+## コミットメッセージの修正
+```
+git commit --amend -m "メッセージの修正"
+```
 
 # gist
 
