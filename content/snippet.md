@@ -49,6 +49,9 @@ git commit --amend -m "メッセージの修正"
 git rebase -i --root
 ```
 
+## 該当のコミットを直前のコミットに統合する
+git-rebase-todoの，該当コミットの pick -> fixup に変更
+
 # gist
 
 ## 新規gistを作るときのurl
