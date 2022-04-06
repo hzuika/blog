@@ -49,8 +49,14 @@ git commit --amend -m "メッセージの修正"
 git rebase -i --root
 ```
 
-## 該当のコミットを直前のコミットに統合する
+### 該当のコミットを直前のコミットに統合する
 git-rebase-todoの，該当コミットの pick -> fixup に変更
+
+### コミットを削除する
+git-rebase-todoの，該当コミットの pick -> drop に変更
+
+### コミットの順番を変える
+git-rebase-todoの，該当コミットの場所を変える．
 
 # gist
 
