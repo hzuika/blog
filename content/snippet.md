@@ -70,11 +70,13 @@ rmdir docs; npm run build; mv public docs; cp src/CNAME docs
 ## 最後のコマンドをコピーする
 ```ps1
 (Get-History | Select-Object -Last 1).CommandLine | clip
+(Get-History | Select-Object -Last 1).CommandLine | Set-Clipboard # 改行なし
 ```
 
 ## 関数として$PROFILEに定義しておくとCopyLastCommandで呼び出せる
 ```ps1
 function CopyLastCommand {(Get-History | Select-Object -Last 1).CommandLine | clip}
+function CopyLastCommand {(Get-History | Select-Object -Last 1).CommandLine | Set-Clipboard} # 改行なし
 ```
 
 ## コマンド履歴をコピーする．
