@@ -4,11 +4,9 @@ metaTitle: "Snippet"
 metaDescription: "よく使用する簡単なコマンド"
 ---
 
-# よく使用するコマンド
+# git
 
-## git
-
-リモートリポジトリにローカルリポジトリの特定のブランチをpushする．
+## リモートリポジトリにローカルリポジトリの特定のブランチをpushする．
 また，その際，リモートリポジトリのコミットを強制的に上書きする．
 ```txt
 git push fork frs_cleanup -f
@@ -16,17 +14,18 @@ git push リモートリポジトリ ローカルリポジトリのブランチ 
 ```
 
 
-diffファイルの作成コマンド．変更箇所と周辺100行まで記載される．
+## diffファイルの作成コマンド
+変更箇所と周辺100行まで記載される．
 ```txt
 git diff -U100 master > ../diffファイルパス
 ```
 
-直前のコミットとのdiffを作成する．
+## 直前のコミットとのdiffを作成する
 ```txt
 git diff -U100 HEAD^ > ../diffファイルパス
 ```
 
-自分のコミットしたコードの行数を数える．
+## 自分のコミットしたコードの行数を数える．
 (参考: https://qiita.com/Night___/items/359ff81f358968567a45)
 ```sh
 # macOS
@@ -34,78 +33,85 @@ git log --numstat --pretty="%H" --author='Yuki Hashimoto' --since=2021-07-01 --n
 ```
 blenderのリポジトリで実行すると， 2022/03/29時点で， 535 (+460, -75) だった．
 
+## 空のコミット
 
-## gist
+```
+git commit --allow-empty -m "first commit"
+```
 
-新規gistを作るときのurl．
+
+# gist
+
+## 新規gistを作るときのurl
 ファイルエクスプローラーからファイルをドラッグアンドドロップで挿入できる．
 
 [gist.github.com](gist.github.com)
 
-自分(ユーザ名 hzuika)のgist一覧を確認するurl．
+## 自分(ユーザ名 hzuika)のgist一覧を確認するurl
 
 [gist.github.com/hzuika](gist.github.com/hzuika)
 
-## powershell
+# powershell
 
-gastbyブログをビルドするときのコマンド．
+## gastbyブログをビルドするときのコマンド
 ```ps1
 rmdir docs; npm run build; mv public docs
 ```
 
-CNAMEのコピーを含めたコマンド．
+## CNAMEのコピーを含めたコマンド
 ```txt
 rmdir docs; npm run build; mv public docs; cp src/CNAME docs
 ```
 
-最後のコマンドをコピーする．
+## 最後のコマンドをコピーする
 ```ps1
 (Get-History | Select-Object -Last 1).CommandLine | clip
 ```
 
-関数として$PROFILEに定義しておくとCopyLastCommandで呼び出せる．
+## 関数として$PROFILEに定義しておくとCopyLastCommandで呼び出せる
 ```ps1
 function CopyLastCommand {(Get-History | Select-Object -Last 1).CommandLine | clip}
 ```
 
-コマンド履歴をコピーする．
+## コマンド履歴をコピーする．
 こちらのほうが使いやすいかもしれない．
 ```ps1
 Get-History | clip
 ```
 
-ファイルサイズでソートして，サイズとファイル名を出力する (サブフォルダも対象)．
+## ファイルサイズでソートして，サイズとファイル名を出力する (サブフォルダも対象)．
 ```ps1
 Get-ChildItem .\source\blender\freestyle\ -Recurse -File| Sort-Object -Property Length | ForEach-Object {Write-Host $_.Length $_.Fullname}
 ```
 
-## cppcheck
-ディレクトリ下のソースコード内の未使用関数を検出する．
+# cppcheck
+## ディレクトリ下のソースコード内の未使用関数を検出する．
 他にもError等も出力されます(これの消し方はまだわかりません)．
 ```txt
 cppcheck --enable=unusedFunction -q ディレクトリ 2> 出力ファイルパス
 ```
 
-## make
+# make
 
 Widnowsでblenderをビルドするときは， make コマンドではなく， make.bat のバッチファイルを実行します．
 Powershellで実行する場合は， .\make.bat のようにカレントディレクトリから書く必要があります(tabで補完できます)．
 
-実行ファイルの出力ディレクトリを手動で設定します．
+## blenderの実行ファイルの出力ディレクトリを手動で設定します．
 これで，bulid_msbuild_debug フォルダにVisual Studio のソリューションファイルが作成されます．
 ```txt
 .\makebat debug builddir bulid_msbuild_debug
 ```
 
+## blenderのビルド
 いつもは ninja ビルドシステムとsccacheオプションを有効にしてblenderをビルドしています．
 ビルド時間は計測したことはありませんが，ninjaのほうが早く感じます．
 ```txt
 .\make.bat debug ninja sccache
 ```
 
-## Network
+# Network
 
-IP アドレスを調べる．
+## IP アドレスを調べる
 ```sh
 # macOS
 ifconfig
@@ -113,7 +119,7 @@ ifconfig
 ipconfig
 ```
 
-同一LAN内の接続機器のIPアドレスとMACアドレスを調べる．
+## 同一LAN内の接続機器のIPアドレスとMACアドレスを調べる
 ```sh
 arc -a
 ```
@@ -123,9 +129,9 @@ MACアドレス(OrganizationalUniqueIdentifier （OUI）)から，製造元を�
 
 [https://www.wireshark.org/tools/oui-lookup.html](https://www.wireshark.org/tools/oui-lookup.html)
 
-## GitHub
+# GitHub
 
-Advanced Search．
+## Advanced Search
 * リポジトリを指定 `repo:`
 * ファイルパスを指定 `path:`
 例：blender/blender リポジトリの /source フォルダ内で ghost という単語を検索する．
