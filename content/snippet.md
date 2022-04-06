@@ -44,6 +44,11 @@ git commit --allow-empty -m "first commit"
 git commit --amend -m "メッセージの修正"
 ```
 
+## コミットの編集(rebase)で最初のコミットに戻る
+```
+git rebase -i --root
+```
+
 # gist
 
 ## 新規gistを作るときのurl
