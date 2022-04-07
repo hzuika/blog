@@ -47,3 +47,15 @@ Reactコンポーネントで `props` 引数を使用すると，タグの引数
 
 参考:
 [Part 2: Use and Style React Components | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-2/#use-the-link-component)
+
+Reactコンポーネントで `{ children }` 引数 (`props.children`)を使用すると，タグで囲まれた要素が使用できる．
+
+参考:
+[Part 2: Use and Style React Components | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-2/#create-a-reusable-layout-component)
+
+.module.css の拡張子を持つファイルを作成して，`.名前 {}`のCSSクラスを定義します．
+JSXファイルにインポートして，Reactコンポーネント内でタグの `className={名前}` に対応するCSSクラスを代入すると適用されます．
+`.nav-links`のようにハイフンを持ったCSSクラスの場合はJSXファイル内で使用する場合は`navLinks`のように，ハイフンを削除して，その次の文字を大文字に変更します．
+
+参考:
+[Part 2: Use and Style React Components | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-2/#style-components-with-css-modules)
