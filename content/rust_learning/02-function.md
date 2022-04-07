@@ -9,7 +9,7 @@ metaDescription: ""
 3次元ベクトルの外積を計算する関数 `cross` を定義します．
 `Float3` の参照 `&Float3` を二つ引数に取って `Float3` (関数の最後に書かれた式) を返します．
 外積の計算は定義どおりです．
-```rs
+```rust
 pub fn cross(a: &Float3, b: &Float3) -> Float3 {
     Float3 {
         x: a.y * b.z - a.z * b.y,
@@ -22,7 +22,7 @@ pub fn cross(a: &Float3, b: &Float3) -> Float3 {
 # テスト
 `cross` 関数を使用するために `use crate::cross;` の代わりにワイルドカード `use crate::*;` を使用して，`Float3`と`cross`がどちらもインポートされるようにします．
 
-```rs
+```rust
 #[cfg(test)]
 mod tests {
 +   use crate::*;

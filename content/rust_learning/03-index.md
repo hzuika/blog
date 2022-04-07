@@ -14,7 +14,7 @@ metaDescription: ""
 
 参考: [rust - Is it legal to cast a struct to an array? - Stack Overflow](https://stackoverflow.com/questions/62240126/is-it-legal-to-cast-a-struct-to-an-array)
 
-```rs
+```rust
 impl Float3 {
     fn as_slice(&self) -> &[f32] {
         unsafe { std::slice::from_raw_parts(self as *const Self as *const f32, 3) }
@@ -29,7 +29,7 @@ impl Float3 {
 ## インデックス演算子のオーバーロード
 先ほどのスライスを作成する関数を使用して，インデックス演算子をオーバーロードします．
 
-```rs
+```rust
 impl std::ops::Index<usize> for Float3 {
     type Output = f32;
     fn index(&self, index: usize) -> &Self::Output {
@@ -46,7 +46,7 @@ impl std::ops::IndexMut<usize> for Float3 {
 
 # テスト
 
-```rs
+```rust
 #[cfg(test)]
 mod tests {
     use crate::*;

@@ -7,7 +7,7 @@ metaDescription: ""
 # 比較できるようにする．
 `PartialEq` で等しいかどうかの比較が可能になります． `f32` 型を使用しているため， `Eq` ではなく， `PartialEq` になります．
 また， `assert_eq!` マクロで使用するために， `Debug` を加えます．
-```rs
+```rust
 #[derive(Default, Debug, PartialEq)]
 pub struct Float3 {
     pub x: f32,
@@ -17,7 +17,7 @@ pub struct Float3 {
 ```
 
 # テスト
-```rs
+```rust
 #[cfg(test)]
 mod tests {
     use crate::*;

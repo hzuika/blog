@@ -8,7 +8,7 @@ metaDescription: ""
 四則演算(`+-/*`)のオーバーロードを行います．
 プリミティブ型のデフォルト値(`0`)で初期化された変数を用意する必要があったため，構造体の定義の前に`#[derive(Default)]`を加えます．
 
-```rs
+```rust
 +#[derive(Default)]
 pub struct Float3 {
     pub x: f32,
@@ -20,7 +20,7 @@ pub struct Float3 {
 `std::ops::Add` トレイトの `add` メソッドを実装します．
 ここでは， `Self` 型が `&Float3` になり， `Self::Output` 型が `Float3` になります．
 `std::ops::Sub` トレイトの `sub` メソッド， `std::ops::Mul` トレイトの `mul` メソッドも同様に実装します．
-```rs
+```rust
 impl std::ops::Add for &Float3 {
     type Output = Float3;
     fn add(self, other: Self) -> Self::Output {
@@ -34,7 +34,7 @@ impl std::ops::Add for &Float3 {
 ```
 
 `std::ops::Div` トレイトの `div` メソッドは ゼロ除算が起きないように事前にチェックします．
-```rs
+```rust
 impl std::ops::Div for &Float3 {
     type Output = Float3;
     fn div(self, other: Self) -> Self::Output {
@@ -52,7 +52,7 @@ impl std::ops::Div for &Float3 {
 
 # 必ず失敗するテスト
 
-```rs
+```rust
 #[cfg(test)]
 mod tests {
     use crate::*;
@@ -78,7 +78,7 @@ mod tests {
 # マクロ
 似た部分の記述をマクロにします．
 
-```rs
+```rust
 macro_rules! vec_op_impl {
     ($T:ty, $a:expr, $op:tt, $b:expr) => {
         {
@@ -104,7 +104,7 @@ impl std::ops::Add for &Float3 {
 `+=, -=, *=, /=` については，それぞれ`add_assign`, `sub_assign`, `mul_assign`, `div_assign`が対応します．
 マクロを使用して実装します．
 
-```rs
+```rust
 macro_rules! vec_op_impl_self {
     ($a:expr, $op:tt, $b:expr) => {
         for i in 0..3 {
@@ -132,7 +132,7 @@ impl std::ops::DivAssign<&Float3> for Float3 {
 
 `-a` の演算子を定義します．
 
-```rs
+```rust
 impl std::ops::Neg for &Float3 {
     type Output = Float3;
     fn neg(self) -> Self::Output {
@@ -149,7 +149,7 @@ impl std::ops::Neg for &Float3 {
 
 ## 右辺がスカラー
 
-```rs
+```rust
 macro_rules! vec_op_impl_scalar {
     ($T:ty, $a:expr, $op:tt, $b:expr) => {
         {
@@ -172,7 +172,7 @@ impl Add<f32> for &Float3 {
 
 ## 左辺がスカラー
 
-```rs
+```rust
 macro_rules! vec_op_impl_scalar_lhs {
     ($T:ty, $a:expr, $op:tt, $b:expr) => {
         {
@@ -199,7 +199,7 @@ impl Add<&Float3> for f32 {
 
 `ベクトル+ベクトル`と`ベクトル+スカラー`，`スカラー+ベクトル`のマクロを一か所にまとめます．
 
-```rs
+```rust
 macro_rules! vec_op_impl {
     ($T:ty, $a:ident[i] $op:tt $b:ident[i]) => {
         {
@@ -253,7 +253,7 @@ impl Add<&Float3> for f32 {
 ## 複合代入演算子
 `ベクトル+=ベクトル`と`ベクトル+=スカラー`のマクロをまとめます．
 
-```rs
+```rust
 macro_rules! vec_op_impl_self {
     ($a:ident[i] $op:tt $b:ident[i]) => {
         for i in 0..3 {

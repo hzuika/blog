@@ -8,7 +8,7 @@ metaDescription: ""
 
 # 定義
 
-```rs
+```rust
 #[derive(Default, Debug, PartialEq)]
 pub struct VecBase3<T> {
     pub x: T,
@@ -21,7 +21,7 @@ type Float3 = VecBase3<f32>;
 
 # コンストラクタ
 
-```rs
+```rust
 impl<T> VecBase3<T> {
     pub fn new(x: T, y: T, z: T) -> Self {
         Self { x, y, z }
@@ -31,7 +31,7 @@ impl<T> VecBase3<T> {
 
 # スライスへの変換
 
-```rs
+```rust
 impl<T> VecBase3<T> {
     fn as_slice(&self) -> &[T] {
         unsafe { std::slice::from_raw_parts(self as *const Self as *const T, 3) }
@@ -45,7 +45,7 @@ impl<T> VecBase3<T> {
 
 # インデックス演算子
 
-```rs
+```rust
 impl<T> Index<usize> for VecBase3<T> {
     type Output = T;
     fn index(&self, index: usize) -> &Self::Output {
@@ -65,13 +65,13 @@ impl<T> IndexMut<usize> for VecBase3<T> {
 ## Neg 演算子 (単項演算子 - )
 四則演算のオーバーロードはジェネリックをそのまま適用することはできない．
 単項演算子の `Neg` (`-`)の場合， `default` が呼べない．
-```rs
+```rust
 let mut _result = Self::Output::default();
                                 ^^^^^^^ function or associated item cannot be called on `VecBase3<T>` due to unsatisfied trait bounds
 ```
 構造体の初期化に変更する．
 (これまでは，`default`で初期化した後，for文で各値を変更していたが，RustではC++のようなテンプレートの特殊化ができない．二次元，四次元ベクトルの実装も適宜同じように書いていくことにする．)
-```rs
+```rust
         Self::Output {
             x: -self.x,
             y: -self.y,
@@ -80,20 +80,20 @@ let mut _result = Self::Output::default();
 ```
 
 今度は， `T` 型に単項演算子 `-` を適用できない．
-```rs
+```rust
 81 |             x: -self.x,
    |                ^^^^^^^ cannot apply unary operator `-`
 error[E0600]: cannot apply unary operator `-` to type `T`
 ```
 
 型にジェネリック境界を加える．これで `T` 型は `Neg` が実装されているものに限定される．
-```rs
+```rust
 impl<T: Neg<Output = T>> Neg for &VecBase3<T> {
 ```
 
 `Copy` トレイトが実装されていないため，エラーになる．
 
-```rs
+```rust
 error[E0507]: cannot move out of `self.x` which is behind a shared reference
   --> src\lib.rs:81:17
    |
@@ -102,7 +102,7 @@ error[E0507]: cannot move out of `self.x` which is behind a shared reference
 ```
 
 これで，上手くいく．
-```rs
+```rust
 impl<T: Neg<Output = T> + Copy> Neg for &VecBase3<T> {
     type Output = VecBase3<T>;
     fn neg(self) -> Self::Output {
@@ -118,7 +118,7 @@ impl<T: Neg<Output = T> + Copy> Neg for &VecBase3<T> {
 ## Add 演算子
 `Neg` 演算子と同様に，ジェネリック境界を設定する．
 
-```rs
+```rust
 impl<T: Add<Output = T> + Copy> Add for &VecBase3<T> {
     type Output = VecBase3<T>;
     fn add(self, other: Self) -> Self::Output {

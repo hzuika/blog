@@ -5,7 +5,7 @@ metaDescription: ""
 ---
 
 全てにマッチするマクロ．
-```rs
+```rust
 macro_rules! match_all_macro {
     ($($t:tt)*) => {};
 }

@@ -7,7 +7,7 @@ metaDescription: ""
 # 構造体の定義
 
 lib.rs に`f32` 型の3次元ベクトル構造体 `Float3` を作ります．
-```rs
+```rust
 pub struct Float3 {
     pub x: f32,
     pub y: f32,
@@ -27,7 +27,7 @@ warning: field is never read: `x`
 # テスト
 デフォルトのテストコードを書き換えます．
 ソースコードのフォーマットのために rustfmt を使用して， `cargo fmt` を実行しておきます．
-```rs
+```rust
 #[cfg(test)]
 mod tests {
     use crate::Float3;

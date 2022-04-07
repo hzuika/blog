@@ -16,6 +16,7 @@ export function applyLanguages(_Prism) {
    * ```
    */
 
+  require('prismjs/components/prism-rust');
 }
 
 export function getTheme(_Prism) {

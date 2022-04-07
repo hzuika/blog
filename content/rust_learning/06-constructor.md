@@ -6,7 +6,7 @@ metaDescription: ""
 
 コンストラクタはないので，代わりにスタティックメソッド `new` を定義します．
 フィールド名と変数名が一致する場合，構造体のインスタンス生成時にフィールド名は省略できます．
-```rs
+```rust
 impl Float3 {
     pub fn new(x: f32, y: f32, z: f32) -> Self {
         Self { x, y, z } // x:x ではなく， xで構わない
@@ -16,7 +16,7 @@ impl Float3 {
 
 # テスト
 
-```rs
+```rust
 #[cfg(test)]
 mod tests {
     use crate::*;
@@ -38,7 +38,7 @@ mod tests {
 
 # その他のコンストラクタ
 
-```rs
+```rust
 macro_rules! new_scalar_internal {
     ($T:ty, $val:expr) => {
         {
