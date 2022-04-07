@@ -29,6 +29,11 @@ npm -v
 
 スターターなしで作ります．
 
+```
+npm init -y
+npm install gatsby react react-dom
+```
+
 [Commits · hzuika/blog_gatsby](https://github.com/hzuika/blog_gatsby/commits/test)
 
 src/pages/index.js を作成してページを作ります．
@@ -59,3 +64,24 @@ JSXファイルにインポートして，Reactコンポーネント内でタグ
 
 参考:
 [Part 2: Use and Style React Components | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-2/#style-components-with-css-modules)
+
+---
+
+```
+npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem
+```
+
+インストールしたプラグインを使用するために，gatsby-config.js に `module.exports` を加えます．
+```js
+module.exports = {
+    plugins: [
+        "gatsby-plugin-image",
+        "gatsby-plugin-sharp",
+    ]
+} 
+```
+
+"gatsby-plugin-image" から `<StaticImage>` コンポーネントをインポートして画像を表示します．
+
+参考: 
+[Part 3: Add Features with Plugins | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-3/)
