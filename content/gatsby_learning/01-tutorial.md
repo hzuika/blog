@@ -10,7 +10,7 @@ metaDescription: ""
 scoop install volta
 ```
 
-nodejsの16がLTSだったので，インストールします．
+nodejsのLTSバージョンは16だったので，インストールします．
 ```
 volta install node@16
 ```
@@ -29,49 +29,38 @@ npm -v
 
 スターターなしで作ります．
 
+[Commits · hzuika/blog_gatsby](https://github.com/hzuika/blog_gatsby/commits/tutorial)
+
 ```
 npm init -y
 npm install gatsby react react-dom
 ```
 
-[Commits · hzuika/blog_gatsby](https://github.com/hzuika/blog_gatsby/commits/test)
-
-src/pages/index.js を作成してページを作ります．
-
-参考:
-[Setting up a Gatsby Site Without the `gatsby new` Command | Gatsby](https://www.gatsbyjs.com/docs/using-gatsby-professionally/setting-up-gatsby-without-gatsby-new/)
-
-src/pages/ に入れた .js ファイルのファイル名でURLにアクセスできるようです．
+チュートリアルに従って進めます．
+src/pages/ 内の JSX ファイルが表示されるようです．
 
 参考:
-[Part 2: Use and Style React Components | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-2/#task-create-a-new-page-component-for-an-about-page)
+* [Setting up a Gatsby Site Without the `gatsby new` Command | Gatsby](https://www.gatsbyjs.com/docs/using-gatsby-professionally/setting-up-gatsby-without-gatsby-new/)
+* [Part 2: Use and Style React Components | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-2/)
 
-Reactコンポーネントで `props` 引数を使用すると，タグの引数が使用できるようです．
+Reactコンポーネントで `props` 引数を使用すると，`<タグ 引数名=値>`の引数が使用できるようです．
 
 `<Link>` コンポーネントを使用すると，相対パスを使用して別のページへのリンクを作成することができます．
 
-参考:
-[Part 2: Use and Style React Components | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-2/#use-the-link-component)
-
-Reactコンポーネントで `{ children }` 引数 (`props.children`)を使用すると，タグで囲まれた要素が使用できる．
-
-参考:
-[Part 2: Use and Style React Components | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-2/#create-a-reusable-layout-component)
+Reactコンポーネントで `{ children }` 引数 (`props.children`) を使用すると，タグで囲まれた要素が使用できます．
 
 .module.css の拡張子を持つファイルを作成して，`.名前 {}`のCSSクラスを定義します．
 JSXファイルにインポートして，Reactコンポーネント内でタグの `className={名前}` に対応するCSSクラスを代入すると適用されます．
 `.nav-links`のようにハイフンを持ったCSSクラスの場合はJSXファイル内で使用する場合は`navLinks`のように，ハイフンを削除して，その次の文字を大文字に変更します．
 
-参考:
-[Part 2: Use and Style React Components | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-2/#style-components-with-css-modules)
-
 ---
 
+様々なプラグインを `npm install プラグイン名` でインストールできます．
 ```
 npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem
 ```
 
-インストールしたプラグインを使用するために，gatsby-config.js に `module.exports` を加えます．
+インストールしたプラグインを使用するために，gatsby-config.js の `module.exports` にプラグインを加えます．
 ```js
 module.exports = {
     plugins: [
@@ -81,9 +70,10 @@ module.exports = {
 } 
 ```
 
-"gatsby-plugin-image" から `<StaticImage>` コンポーネントをインポートして画像を表示します．
+JSXファイルで `gatsby-plugin-image` から `<StaticImage>` コンポーネントをインポートして画像を表示します．
 
 ちなみに `gatsby-plugin-sharp` がないと怒られます．
+`gatsby-plugin-sharp`は画像処理用ライブラリらしいです．
 ```
 Gatsby-plugin-sharp wasn't setup        
 correctly in gatsby-config.js. Make sure
@@ -92,6 +82,10 @@ correctly in gatsby-config.js. Make sure
 
 参考: 
 [Part 3: Add Features with Plugins | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-3/)
+
+---
+
+MDX ファイルを使用するためにプラグインをインストールしようとしてエラーが起きました．
 
 ```
 npm install gatsby-plugin-mdx @mdx-js/mdx@v1 @mdx-js/react@v1
@@ -130,3 +124,5 @@ react と react-dom を 18から17へ変更して解決しました．
 npm uninstall react react-dom
 npm install react@17 react-dom@17
 ```
+
+---
