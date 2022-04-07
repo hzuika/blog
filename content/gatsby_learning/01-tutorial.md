@@ -83,5 +83,57 @@ module.exports = {
 
 "gatsby-plugin-image" から `<StaticImage>` コンポーネントをインポートして画像を表示します．
 
+ちなみに `gatsby-plugin-sharp` がないと怒られます．
+```
+Gatsby-plugin-sharp wasn't setup        
+correctly in gatsby-config.js. Make sure
+ you add it to the plugins array.
+```
+
 参考: 
 [Part 3: Add Features with Plugins | Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-3/)
+
+```
+npm install gatsby-plugin-mdx @mdx-js/mdx@v1 @mdx-js/react@v1
+
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+npm ERR! While resolving: blog_gatsby@1.0.0
+npm ERR! Found: react@18.0.0
+npm ERR! node_modules/react
+npm ERR!   react@"^18.0.0" from the root project
+npm ERR!   peer react@"^16.9.0 || ^17.0.0 || ^18.0.0" from gatsby-plugin-mdx@3.11.1
+npm ERR!   node_modules/gatsby-plugin-mdx
+npm ERR!     gatsby-plugin-mdx@"*" from the root project
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer react@"^16.13.1 || ^17.0.0" from @mdx-js/react@1.6.22
+npm ERR! node_modules/@mdx-js/react
+npm ERR!   @mdx-js/react@"v1" from the root project
+npm ERR!   peer @mdx-js/react@"^1.0.0" from gatsby-plugin-mdx@3.11.1
+npm ERR!   node_modules/gatsby-plugin-mdx
+npm ERR!     gatsby-plugin-mdx@"*" from the root project
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR! See C:\Users\hashi\AppData\Local\npm-cache\eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\hashi\AppData\Local\npm-cache\_logs\2022-04-07T12_08_20_005Z-debug-0.log
+```
+
+```
+npm list
+blog_gatsby@1.0.0 D:\src\blog_gatsby
+├── gatsby-plugin-image@2.11.1
+├── gatsby-plugin-sharp@4.11.1
+├── gatsby-source-filesystem@4.11.1
+├── gatsby@4.11.2
+├── react-dom@18.0.0
+└── react@18.0.0
+```
+
+react と react-dom を 18から17へ変更して解決しました．
