@@ -40,3 +40,10 @@ VSCode Dark+ のテーマが使いたかったのですが，以下のツール�
 参考:
 * [prism-react-renderer example - CodeSandbox](https://codesandbox.io/s/prism-react-renderer-example-u6vhk?file=/src/WithLineNumbers.js)
 * [vscode styled componentsの補完が効かない](https://zenn.dev/muzin00/articles/ace4d0d4b3da4d)
+
+---
+
+prism.jsでrustのシンタックスハイライト用のキーワードは`rs`ではなく，`rust`でした．
+
+参考:
+* [Prism](https://prismjs.com/)
