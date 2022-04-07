@@ -126,3 +126,14 @@ npm install react@17 react-dom@17
 ```
 
 ---
+
+`useStaticQuery` を使用すると GraphQL のクエリを使用して様々なデータを取得できます．
+
+定義した`export const query = graphqlクエリ`が同一ファイル内で定義したReactコンポーネントの引数`{data}`に渡されるようです(?)
+
+VSCodeで Prettier を使うとjsファイルやcssファイルのフォーマットができます．
+Format on Saveにしておくと，保存時に自動で整形されます．
+
+`{mdx.slug}.js` を使用すると，mdxファイルのファイル名をslugとしたページが生成されます．
+
+mdxファイルのfrontmatterでパスを記述した同じディレクトリにある各画像ファイルを表示するためには，動的画像`<GatsbyImage>`コンポーネントを使用するようです．
