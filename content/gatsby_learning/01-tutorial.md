@@ -125,15 +125,8 @@ npm ERR! A complete log of this run can be found in:
 npm ERR!     C:\Users\hashi\AppData\Local\npm-cache\_logs\2022-04-07T12_08_20_005Z-debug-0.log
 ```
 
-```
-npm list
-blog_gatsby@1.0.0 D:\src\blog_gatsby
-├── gatsby-plugin-image@2.11.1
-├── gatsby-plugin-sharp@4.11.1
-├── gatsby-source-filesystem@4.11.1
-├── gatsby@4.11.2
-├── react-dom@18.0.0
-└── react@18.0.0
-```
-
 react と react-dom を 18から17へ変更して解決しました．
+```
+npm uninstall react react-dom
+npm install react@17 react-dom@17
+```
