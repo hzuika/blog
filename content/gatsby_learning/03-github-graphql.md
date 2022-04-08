@@ -107,17 +107,15 @@ module.exports ={
 ```js
 query MyQuery {
   githubData {
-    rawResult {
-      data {
-        repository {
-          object {
-            history {
-              edges {
-                node {
-                  messageHeadline
-                  committedDate
-                  commitUrl
-                }
+    data {
+      repository {
+        object {
+          history {
+            edges {
+              node {
+                messageHeadline
+                committedDate
+                commitUrl
               }
             }
           }
