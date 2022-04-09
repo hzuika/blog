@@ -137,11 +137,11 @@ query MyQuery {
 `String!` , `String`, `[String!]` などが少しややこしいです．
 
 ```js
-query ($repo_owner: String!, $repo_name: String!, $branch: String, $emails: [String!]) {
+query ($repo_owner: String!, $repo_name: String!, $branch: String, $author_emails: [String!]) {
   repository(owner: $repo_owner, name: $repo_name) {
     object(expression: $branch) {
       ... on Commit {
-        history(author: {emails: $emails}) {
+        history(author: {emails: $author_emails}) {
           edges {
             node {
               messageHeadline
@@ -165,4 +165,55 @@ query ($repo_owner: String!, $repo_name: String!, $branch: String, $emails: [Str
   "branch": "master",
   "author_emails": ["hzuika"]
 }
+```
+
+gatsby-config.jsで，`gatsby-source-github-api`の設定の場合は，次のようになります．
+```js
+        variables: {
+          repo_owner: "blender",
+          repo_name: "blender",
+          branch: "master",
+          author_emails: ["hzuika"],
+        },
+```
+
+JSXファイル内で，`useStaticQuery`を使用してデータを取得します．
+
+`data.githubData.data.repository.object.history.edges` の中の配列からデータを取り出します．
+
+```js
+const MyCommit = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      githubData {
+        data {
+          repository {
+            object {
+              history {
+                edges {
+                  node {
+                    id
+                    oid
+                    messageHeadline
+                    committedDate
+                    commitUrl
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  const commits = data.githubData.data.repository.object.history.edges;
+
+  return (
+    <p>
+    {commits.map((commit) => {
+      commit.node.messageHeadline
+    })}
+    </p>
+  );
+};
 ```
