@@ -162,5 +162,9 @@ const TagPage = ({
 };
 ```
 
+gatsby-node.js で各タグページを生成しました．
+最初，gatsby-node.js のファイル名を間違えていて，タグページが生成されなくて，混乱しました．
+ただ，作ったはずのtemplateファイルが使用されない警告と，`console.log()`が表示されなかったため，ファイル名の間違いに気づきました．
+
 参考: 
 * [Gatsbyブログにカテゴリやタグを追加する｜にしまつ@マーケティング・サイエンティスト｜note](https://note.com/daikinishimatsu/n/n20d48b27cc72)
